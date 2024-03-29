@@ -4,7 +4,7 @@ A python-based utility for investigating a binaries HEX for "penguins" against a
 USAGE:::
 
 ```
-python3 -f pathToFile.txt --asText
+python3 hex-xor-analyzer.py -f pathToFile.bin
 ```
 ----
 {HEADER AND INITIAL INPUT IS SHOWN}
