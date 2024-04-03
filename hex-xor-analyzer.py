@@ -135,11 +135,15 @@ if __name__ == "__main__":
     parser.add_argument("--noClear", "-n", required=False,  default=False, action="store_true", help="disables terminal clearing, allowing for earlier output to be reviewed via terminal history")
     parser.add_argument("--singleCommand", "-s", required=False,  default=False, help="enables 'just XOR it' mode, will issue a single xor input (or other command) and display output, useful for integration with other tooling (like bash scripts) for brute force searching! (usage: -s FF)")
     parser.add_argument("--asciiMode", "-a", required=False, default=False, action="store_true", help="enable ascii mode immediately")
+    parser.add_argument("--textIn", "-i", required=False, default=False, action="store_true", help="changes the --file argument to a direct text input")
     args = parser.parse_args()
 
     quit = False
 
-    fileString = getStrFromInputFile(args.file, args.asText)
+    if not args.textIn:
+        fileString = getStrFromInputFile(args.file, args.asText)
+    else:
+        fileString = args.file
 
     command = "00 0"
     latestHexXor = "00"
